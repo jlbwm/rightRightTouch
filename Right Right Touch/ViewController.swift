@@ -72,7 +72,16 @@ class ViewController: UIViewController
             
             if count == 2
             {
-                restart()
+                let alert = UIAlertController(title: "Congratulation! \(flipCount) times", message: "New Game?", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+                
+                alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {
+                    (alertAction) -> Void in self.restart()
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+                
             }
             
         }
